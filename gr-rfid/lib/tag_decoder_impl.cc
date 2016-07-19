@@ -312,6 +312,31 @@ namespace gr {
         */
 
         EPC_bits   = tag_detection_EPC(EPC_samples_complex,EPC_index);
+	/*
+	char str[32];
+	char *sptr = str;
+	unsigned char hex_t;
+	for (int m=0; m<16; m++)
+	{
+		hex_t=0x0;
+		for (int n=0; n<8; n++)
+		{
+			hex_t = hex_t << 1;
+			if (EPC_bits[m*8+n] == 0)
+			{
+				hex_t = hex_t | 0;
+			}
+			else
+			{
+				hex_t = hex_t | 1;
+			}
+			//printf("%X,", hex_t);
+		}
+		//printf("\n");
+		sptr += sprintf(sptr, "%02X", hex_t);
+	}
+	GR_LOG_INFO(d_debug_logger, "RAW EPC: " << str);
+	*/
 
         
         if (EPC_bits.size() == EPC_BITS - 1)
